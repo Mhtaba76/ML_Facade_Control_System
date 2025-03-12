@@ -2,6 +2,8 @@
 
 This repository contains a trained machine learning model developed to predict daylight illumination values (`Et`, `Ev`) across a sensor grid matrix, leveraging environmental, geographic, and spatial features.
 
+![Description](images/sensor_animation.gif)
+
 ## Project Overview
 
 ### Objective
