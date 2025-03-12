@@ -1,6 +1,6 @@
 # An AI-Driven Real-Time Shading Control System for Adaptive Façades: Enhancing Visual Comfort and Energy Efficiency
 
-This repository contains a trained machine learning model developed to predict daylight illumination values (`Et`, `Ev`) across a sensor grid matrix, leveraging environmental, geographic, and spatial features.
+This repository contains data, results, and trained machine learning models developed to predict daylight illumination values (`Et`, `Ev`) across a sensor grid matrix, leveraging environmental, geographic, and spatial features.
 
 ![Description](images/sensor_animation.gif)
 
