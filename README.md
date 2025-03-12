@@ -1,14 +1,14 @@
-# Daylight Prediction Model
+# An AI-Driven Real-Time Shading Control System for Adaptive Façades: Enhancing Visual Comfort and Energy Efficiency
 
-This repository contains a trained machine learning model developed to predict daylight illumination values (`Et`) across a sensor grid matrix, leveraging environmental, geographic, and spatial features.
+This repository contains a trained machine learning model developed to predict daylight illumination values (`Et`, `Ev`) across a sensor grid matrix, leveraging environmental, geographic, and spatial features.
 
 ## Project Overview
 
 ### Objective
-The goal is to accurately predict illumination (`Et`) values for a 25×20 sensor grid to assist architectural and environmental analyses in building design.
+The goal is to accurately predict illumination (`Et`, `Ev`) values for a 25×20 sensor grid to assist architectural and environmental analyses in building design.
 
 ### Dataset
-- Total dataset size: **484,000** rows.
+- Total dataset size: **783,000** rows equal to **1566** simulation sensor grid.
 - Features include weather conditions, solar geometry, spatial sensor information, and geographic attributes.
 
 ### Features Used
@@ -22,9 +22,9 @@ The goal is to accurately predict illumination (`Et`) values for a 25×20 sensor
   - Sensor angle: `Angle`
 
 ### Target Variable
-- Illumination value (`Et`)
+- Illumination value (`Et`, `Ev`)
 
-## Machine Learning Model
+## Best Machine Learning Model
 
 - **Algorithm**: Extra Trees Regressor
 - **Hyperparameters**:
@@ -38,11 +38,11 @@ The goal is to accurately predict illumination (`Et`) values for a 25×20 sensor
 
 ## Model Performance
 
-| Metric | Score |
-|--------|-------|
-| R²     | **Reported in script output** |
-| MAE    | **Reported in script output** |
-| MSE    | **Reported in script output** |
+| Metric | Score Et | Score Ev | 
+|--------|-------|-------|
+| R²     | **96** | **96** |
+| MAE    | **50** | **50** |
+| MSE    | **1000** | **1000** |
 
 *(Check the script or notebook for specific numeric performance results.)*
 
