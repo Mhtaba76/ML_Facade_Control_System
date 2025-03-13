@@ -5,13 +5,13 @@ from deap import base, creator, tools, algorithms
 import math
 from Visualization_class import * # Defined calss for visualization
 
-df_cities = pd.read_csv('/Users/mrajaian/Downloads/cities_data.csv')
+df_cities = pd.read_csv('data/simulation_data.csv')
 df_cities.drop('city',axis = 1, inplace = True)
 df_cities_ = df_cities.iloc[:,3:]
 
 
 # === Load the trained ExtraTrees model ===
-model_path = "extra_trees_model.pkl"  # Update path if needed
+model_path = "models/et_model_ET.pkl"  # Update path if needed
 loaded_model = joblib.load(model_path)
 
 # ===  Define multiple fixed sensor locations ===
@@ -146,7 +146,7 @@ print(f"\n=== Optimal Attractor Point Location ===")
 print(f"Optimal AP-Length: {optimal_ap_length:.4f}")
 print(f"Optimal AP-Width: {optimal_ap_width:.4f}")
 
-df = pd.read_csv('/Users/mrajaian/Downloads/data_backup_47.csv')
+df = pd.read_csv('data/simulation_data.csv')
 df = df.query('seed == 2') # seed can be any number
 
 # Create DataFrame for given sensor locations
