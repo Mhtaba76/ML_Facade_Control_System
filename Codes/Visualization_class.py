@@ -16,7 +16,7 @@ class SensorGridVisualization:
     def normalize_heatmap(self, heatmap_values):
         return (heatmap_values - np.min(heatmap_values)) / (np.max(heatmap_values) - np.min(heatmap_values))
 
-    def visualize(self, heatmap_values, attractor_point, title=None, show_colorbar=True):
+    def visualize(self, heatmap_values, attractor_point, sensor_points=[[5, 2, 0.8], [5, 6, 0.8]], title=None, show_colorbar=True):
         normalized_values = self.normalize_heatmap(heatmap_values.reshape(self.grid_y_res, self.grid_x_res))
 
         smooth_colorscale = [
@@ -44,7 +44,26 @@ class SensorGridVisualization:
             name='Attractor Point'
         )
 
-        fig = go.Figure(data=[sensor_surface, attractor])
+        sensor_pts = go.Scatter3d(
+            x=[p[0] for p in sensor_points],
+            y=[p[1] for p in sensor_points],
+            z=[p[2] for p in sensor_points],
+            mode='markers',
+            marker=dict(size=4, color='white', opacity=1),
+            name='Sensor Points'
+        )
+
+        bg_y, bg_z = np.meshgrid(np.linspace(0, self.sensor_width, 10), np.linspace(0, 3, 10))
+        bg_x = np.full_like(bg_y, 0)
+
+        background_plane = go.Surface(
+            x=bg_x, y=bg_y, z=bg_z,
+            colorscale=[(0, "#99FDFF"), (1, "#ffffff")],
+            opacity=0.5,
+            showscale=False
+        )
+
+        fig = go.Figure(data=[sensor_surface, attractor, sensor_pts, background_plane])
 
         fig.update_layout(
             scene=dict(
@@ -61,7 +80,7 @@ class SensorGridVisualization:
                 aspectmode='manual',
                 aspectratio=dict(x=8, y=10, z=3)
             ),
-            title=title or '3D Sensor Grid Visualization'
+            title=title or 'Scaled 3D Sensor Grid Visualization'
         )
 
         return fig
