@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from deap import base, creator, tools, algorithms
 import math
+from Visualization_class import * # Defined calss for visualization
 
 df_cities = pd.read_csv('/Users/mrajaian/Downloads/cities_data.csv')
 df_cities.drop('city',axis = 1, inplace = True)
@@ -180,3 +181,12 @@ desired_order = [
 
 # Reorder the columns based on the desired order (excluding 'city' as it was not in the feature vector)
 data = data[desired_order]
+
+# Predict value for data collected after optimization
+heatmap_values = loaded_model.predict(data).reshape(25, 20)
+
+# Creat an instance of the SensorGridVisualization class
+viz = SensorGridVisualization()
+
+viz.visualize(heatmap_values,[0,1, 1])
+
