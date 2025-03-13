@@ -17,7 +17,7 @@ loaded_model = joblib.load(model_path)
 # ===  Define multiple fixed sensor locations ===
 sensors = {
     1: {'SP-Soth-Dis': 3.8, 'SP-East-Dis': 3, 'SP-North-Dis': 4.2, 'SP-West-Dis': 7},
-#    2: {'SP-Soth-Dis': 4, 'SP-East-Dis': 5, 'SP-North-Dis': 4, 'SP-West-Dis': 5},
+#    2: {'SP-Soth-Dis': 4, 'SP-East-Dis': 5, 'SP-North-Dis': 4, 'SP-West-Dis': 5}, # Can be added to number of sensors
     3: {'SP-Soth-Dis': 4.2, 'SP-East-Dis': 7, 'SP-North-Dis': 4.2, 'SP-West-Dis': 3},
 }
 
