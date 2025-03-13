@@ -2,17 +2,7 @@ import plotly.graph_objects as go
 import numpy as np
 
 class SensorGridVisualization:
-        """
-    Class to visualize sensor grid data as a 3D plot using Plotly.
-
-    Attributes:
-        sensor_width (float): Width of the sensor grid.
-        sensor_height (float): Height of the sensor grid.
-        grid_x_res (int): Resolution of grid along the x-axis.
-        grid_y_res (int): Resolution along the y-axis.
-    """
-    
-    def __init__(self, sensor_width=10, sensor_height=8, grid_x_res=20, grid_y_res=25):
+    def __init__(self, sensor_width=8, sensor_height=10, grid_x_res=20, grid_y_res=25):
         self.sensor_width = sensor_width
         self.sensor_height = sensor_height
         self.grid_x_res = grid_x_res
@@ -48,7 +38,7 @@ class SensorGridVisualization:
         )
 
         attractor = go.Scatter3d(
-            x=[attractor_point[0]], y=[attractor_point[1]], z=[attractor_point[2]],
+            x=[attractor_point[0]], y=[10 - attractor_point[1]], z=[attractor_point[2]],
             mode='markers',
             marker=dict(size=6, color='red', opacity=1),
             name='Attractor Point'
@@ -63,7 +53,7 @@ class SensorGridVisualization:
             name='Sensor Points'
         )
 
-        bg_y, bg_z = np.meshgrid(np.linspace(0, self.sensor_width, 10), np.linspace(0, 3, 10))
+        bg_y, bg_z = np.meshgrid(np.linspace(0, self.sensor_height, 10), np.linspace(0, 3, 10))
         bg_x = np.full_like(bg_y, 0)
 
         background_plane = go.Surface(
