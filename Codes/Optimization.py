@@ -188,5 +188,5 @@ heatmap_values = loaded_model.predict(data).reshape(25, 20)
 # Creat an instance of the SensorGridVisualization class
 viz = SensorGridVisualization()
 
-viz.visualize(heatmap_values,[0,1, 1])
+viz.visualize(heatmap_values,[0,data['AP-Length'][0],data['AP-Width'][0]])
 
