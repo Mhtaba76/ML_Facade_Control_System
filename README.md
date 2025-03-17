@@ -79,6 +79,3 @@ Install dependencies:
 pip install pandas scikit-learn numpy joblib
 ```
 
-## Author
-- [Your Name]
-
